@@ -1,6 +1,19 @@
 URL obj = new URL("{{=data.url}}{{=data.requiredQueryString}}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("{{=data.methodUpper}}");
+
+
+//Use the following line as a template for including header information (anything in the table to the left with "header" in the second column and "true" in the fourth column, for example:
+
+// con.setRequestProperty("Content-Type", "application/json"); 
+
+// Basically, 
+
+// con.setRequestProperty({first column},{third column}); 
+
+// if fourth column is "true" and second column is "header" 
+
+
 int responseCode = con.getResponseCode();
 BufferedReader in = new BufferedReader(
     new InputStreamReader(con.getInputStream()));
